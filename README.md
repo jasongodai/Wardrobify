@@ -3,7 +3,9 @@
 Team:
 
 * Person 1 - Which microservice?
+Jason Dai - Shoes
 * Person 2 - Which microservice?
+Esther Kim - Hats
 
 ## Design
 
