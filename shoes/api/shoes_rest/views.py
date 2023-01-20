@@ -65,3 +65,42 @@ def api_list_shoes(request, bin_vo_id=None):
         encoder=ShoeDetailEncoder,
         safe=False,
     )
+
+@require_http_methods(["GET", "DELETE", "PUT"])
+def api_show_shoe(request, pk):
+    if request.method == "GET":
+        try:
+            shoes = Shoe.objects.get(id=pk)
+            return JsonResponse(
+                shoes,
+                encoder=ShoeDetailEncoder,
+                safe=False,
+        )
+        except Shoe.DoesNotExist:
+            return JsonResponse(
+            {"message": "Invalid shoe id"},
+            status=400,
+            )
+    elif request.method == "DELETE":
+        count, _ = Shoe.objects.filter(id=pk).delete()
+        return JsonResponse(
+            {"deleted": count > 0}
+            )
+    else:
+        content = json.loads(request.body)
+        try:
+            if "bin" in content:
+                bin = BinVO.objects.get(bin=content["bin"])
+                content["bin"] = bin
+        except BinVO.DoesNotExist:
+            return JsonResponse(
+                {"message": "Invalid bin"},
+                status=400
+            )
+        Shoe.objects.filter(id=pk).update(**content)
+        shoes = Shoe.objects.get(id=pk)
+        return JsonResponse(
+                shoes,
+                encoder=ShoeDetailEncoder,
+                safe=False,
+        )

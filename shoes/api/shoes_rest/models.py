@@ -6,7 +6,7 @@ class BinVO(models.Model):
     closet_name = models.CharField(max_length=100)
     bin_number = models.PositiveSmallIntegerField()
     bin_size = models.PositiveSmallIntegerField()
-    import_href = models.CharField(max_length=200, unique=True)
+    import_href = models.CharField(max_length=200, unique=True, blank=True, null=True)
 
     def __str__(self):
         return self.closet_name
@@ -16,7 +16,7 @@ class Shoe(models.Model):
     manufacturer = models.CharField(max_length=100)
     model_name = models.CharField(max_length=100)
     color = models.CharField(max_length = 100)
-    picture_url = models.URLField(null=True)
+    picture_url = models.URLField(null=True, blank=True)
 
     bin = models.ForeignKey(
         BinVO,
