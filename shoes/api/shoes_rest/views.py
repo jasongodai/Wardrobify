@@ -39,8 +39,8 @@ class ShoeDetailEncoder(ModelEncoder):
 
 
 @require_http_methods({"GET", "POST"})
-def api_list_shoes(requests, bin_vo_id=None):
-    if requests.method == "GET":
+def api_list_shoes(request, bin_vo_id=None):
+    if request.method == "GET":
         if bin_vo_id is not None:
             shoes = Shoe.objects.filter(bin=bin_vo_id)
         else:
@@ -50,7 +50,7 @@ def api_list_shoes(requests, bin_vo_id=None):
             encoder=ShoeListEncoder,
         )
     else:
-        content = json.loads(requests.body)
+        content = json.loads(request.body)
         try:
             bin_href = content["bin"]
             bin = BinVO.objects.get(import_href=bin_href)

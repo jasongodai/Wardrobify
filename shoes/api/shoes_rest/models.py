@@ -4,8 +4,8 @@ from django.urls import reverse
 
 class BinVO(models.Model):
     closet_name = models.CharField(max_length=100)
-    section_number = models.PositiveSmallIntegerField()
-    shelf_number = models.PositiveSmallIntegerField()
+    bin_number = models.PositiveSmallIntegerField()
+    bin_size = models.PositiveSmallIntegerField()
     import_href = models.CharField(max_length=200, unique=True)
 
     def __str__(self):
@@ -19,7 +19,7 @@ class Shoe(models.Model):
 
     bin = models.ForeignKey(
         BinVO,
-        related_name="bins",
+        related_name="shoes",
         on_delete=models.CASCADE,
     )
 
@@ -27,4 +27,4 @@ class Shoe(models.Model):
         return self.model_name
 
     def get_api_url(self):
-        return reverse("api_show_hat", kwargs={"pk": self.pk})
+        return reverse("api_show_shoe", kwargs={"pk": self.pk})

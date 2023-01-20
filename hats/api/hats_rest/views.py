@@ -12,6 +12,7 @@ class LocationVOEncoder(ModelEncoder):
         "section_number",
         "shelf_number",
         "import_href",
+        "id",
     ]
 
 
@@ -34,6 +35,7 @@ class HatDetailEncoder(ModelEncoder):
         "color",
         "picture_url",
         "location",
+        "id"
     ]
     encoders = {
         "location": LocationVOEncoder(),
