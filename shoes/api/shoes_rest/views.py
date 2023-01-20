@@ -14,6 +14,7 @@ class BinVOEncoder(ModelEncoder):
         "import_href",
     ]
 
+
 class ShoeListEncoder(ModelEncoder):
     model = Shoe
     properties = [
