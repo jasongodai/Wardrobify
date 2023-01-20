@@ -8,14 +8,6 @@ function ShoesList({shoes}) {
       }
     console.log(shoes);
 
-  //   async function handleDelete(shoe) {
-  //     const shoeUrl = `http://localhost:8080/api/bins/${shoe.id}/`
-  //     const fetchConfig = {
-  //       method: 'delete'
-  //     }
-  //   await fetch(shoeUrl, fetchConfig);
-  //   window.bin.reload(true);
-  // }
   const handleDelete = async (shoe) => {
     const shoeUrl = `http://localhost:8080/api/bins/${shoe.id}/`
     const fetchConfig = {
@@ -24,7 +16,6 @@ function ShoesList({shoes}) {
   await fetch(shoeUrl, fetchConfig);
   window.location.reload(true);
 }
-
 
     return (
         <table className="table table-striped">

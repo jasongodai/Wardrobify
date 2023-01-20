@@ -2,7 +2,7 @@ import { NavLink } from 'react-router-dom';
 
 function Nav() {
   return (
-    <nav className="navbar navbar-expand-lg navbar-light bg-info">
+    <nav className="navbar navbar-expand-lg navbar-light" style={{backgroundColor: "#e3f2fd"}}>
       <div className="container-fluid">
         <NavLink className="navbar-brand" to="/">Wardrobify</NavLink>
         <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -27,6 +27,15 @@ function Nav() {
             </li>
             <li className="nav-item">
               <NavLink className="nav-link" to="/bins/new">Create a New Bin {'|'} </NavLink>
+            </li>
+            <li className="nav-item">
+              <NavLink className="nav-link" to="/hats/new">Create a New Hat</NavLink>
+            </li>
+            <li className="nav-item">
+              <NavLink className="nav-link" to="/locations">Locations</NavLink>
+            </li>
+            <li className="nav-item">
+              <NavLink className="nav-link" to="/locations/new">Create a New Location</NavLink>
             </li>
           </ul>
         </div>
