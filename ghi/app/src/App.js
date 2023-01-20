@@ -15,8 +15,8 @@ function App(props) {
       <div className="container">
         <Routes>
           <Route index element={<MainPage />} />
-          <Route path="hats" element={<HatsList hats={props.hats} />}/>
           <Route path="shoes" element={<ShoesList shoes={props.shoes} />} />
+          <Route path="hats" element={<HatsList hats={props.hats} />}/>
         </Routes>
       </div>
     </BrowserRouter>
