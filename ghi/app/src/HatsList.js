@@ -1,8 +1,8 @@
 import React from 'react'
 
 
-function HatsList(props) {
-    if (props.hats === undefined) {
+function HatsList({hats}) {
+    if (hats === undefined) {
         return null;
     }
     return (
@@ -17,7 +17,7 @@ function HatsList(props) {
                 </tr>
             </thead>
             <tbody>
-                {props.hats.map(hat => {
+                {hats.map(hat => {
                     return (
                         <tr key={hat.id}>
                             <td>{ hat.fabric }</td>

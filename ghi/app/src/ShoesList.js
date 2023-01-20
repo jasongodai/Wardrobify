@@ -1,8 +1,31 @@
-// import React, { useState, useEffect } from 'react';
-import React from 'react';
-import "./index.css";
+import React, { useState, useEffect } from 'react';
+// import React from 'react';
+// import "./index.css";
 
-function ShoesList(props) {
+function ShoesList({shoes}) {
+    if (shoes === undefined) {
+        return null;
+      }
+    console.log(shoes);
+
+  //   async function handleDelete(shoe) {
+  //     const shoeUrl = `http://localhost:8080/api/bins/${shoe.id}/`
+  //     const fetchConfig = {
+  //       method: 'delete'
+  //     }
+  //   await fetch(shoeUrl, fetchConfig);
+  //   window.bin.reload(true);
+  // }
+  const handleDelete = async (shoe) => {
+    const shoeUrl = `http://localhost:8080/api/bins/${shoe.id}/`
+    const fetchConfig = {
+      method: 'delete'
+    }
+  await fetch(shoeUrl, fetchConfig);
+  window.location.reload(true);
+}
+
+
     return (
         <table className="table table-striped">
         <thead>
@@ -15,9 +38,10 @@ function ShoesList(props) {
           </tr>
         </thead>
         <tbody>
-          {props.shoes.map(shoe => {
+          {shoes.map(shoe => {
+            console.log(shoe)
             return (
-            <tr key = {shoe.id}>
+            <tr key={shoe.id}>
               <td>{ shoe.manufacturer }</td>
               <td>{ shoe.model_name }</td>
               <td>{ shoe.color }</td>
@@ -30,6 +54,10 @@ function ShoesList(props) {
                 />
               </td>
               <td>{ shoe.bin }</td>
+              <td>
+                <button id={ shoe.id } onClick={() => handleDelete(shoe)}
+                  type="button" className="btn btn-danger">Delete</button>
+              </td>
             </tr>
             );
           })}
