@@ -96,7 +96,7 @@ def api_show_hat(request, pk):
                 {"message": "Invalid location"},
                 status=400,
             )
-        LocationVO.objects.filter(id=pk).update(**content)
+        Hat.objects.filter(id=pk).update(**content)
         hat = Hat.objects.get(id=pk)
         return JsonResponse(
             hat,
