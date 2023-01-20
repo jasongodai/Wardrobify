@@ -25,3 +25,19 @@ async function loadHats() {
   }
 }
 loadHats();
+
+async function loadShoes() {
+  const shoeResponse = await fetch('http://localhost:8080/api/bins/');
+  if (!shoeResponse.ok) {
+    console.error(shoeResponse);
+  } else {
+    const data = await shoeResponse.json();
+    console.log(data);
+    root.render(
+      <React.StrictMode>
+        <App shoes={data.shoes} />
+      </React.StrictMode>
+    );
+  }
+}
+loadShoes();
