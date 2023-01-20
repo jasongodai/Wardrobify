@@ -1,13 +1,16 @@
 import React, { useState, useEffect } from 'react'
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import MainPage from './MainPage';
-import { useState, useEffect } from 'react';
 import Nav from './Nav';
 import HatsList from './HatsList';
+import HatForm from './HatForm';
 import ShoesList from './ShoesList';
 import ShoeForm from './ShoeForm';
 import BinsList from './BinsList';
 import BinForm from './BinForm';
+import LocationsList from './LocationList';
+import LocationForm from './LocationForm';
+
 
 function App() {
   const [shoes, setShoes] = useState([])
