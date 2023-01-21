@@ -1,7 +1,7 @@
 import React from 'react'
 
 
-function HatsList({hats}) {
+function HatsList({hats, getHats}) {
     if (hats === undefined) {
         return null;
     }
@@ -11,8 +11,10 @@ function HatsList({hats}) {
         const fetchConfig = {
             method: 'delete'
         }
-        await fetch(hatUrl, fetchConfig)
-        window.location.reload(true)
+        const hatResponse = await fetch(hatUrl, fetchConfig)
+        if (hatResponse.ok) {
+            getHats()
+        }
     }
 
     return (

@@ -11,7 +11,6 @@ import BinForm from './BinForm';
 import LocationsList from './LocationList';
 import LocationForm from './LocationForm';
 
-
 function App() {
   const [shoes, setShoes] = useState([])
   const [hats, setHats] = useState([])
@@ -89,20 +88,20 @@ function App() {
         <Routes>
           <Route index element={<MainPage />} />
           <Route path="shoes">
-            <Route path="" element={<ShoesList shoes={shoes} />} />
+            <Route path="" element={<ShoesList shoes={shoes} getShoes={getShoes}/>} />
             <Route path="new" element={<ShoeForm />} />
           </Route>
           <Route path="hats">
-            <Route path="" element={<HatsList hats={hats} />}/>
-            <Route path="new" element={<HatForm />} />
+            <Route path="" element={<HatsList hats={hats} getHats={getHats} />}/>
+            <Route path="new" element={<HatForm />} getHats={getHats} />
           </Route>
           <Route path="bins">
-            <Route path="" element={<BinsList bins={bins} />} />
+            <Route path="" element={<BinsList bins={bins} getBins={getBins} />} />
             <Route path="new" element={<BinForm />} />
           </Route>
           <Route path="locations">
-            <Route path="" element={<LocationsList locations={locations} />} />
-            <Route path="new" element={<LocationForm />} />
+            <Route path="" element={<LocationsList locations={locations} getLocations={getLocations} />} />
+            <Route path="new" element={<LocationForm />} getLocations={getLocations} />
           </Route>
         </Routes>
       </div>

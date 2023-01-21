@@ -13,7 +13,6 @@ function BinsList({bins}) {
         method: 'delete'
       }
     await fetch(binUrl, fetchConfig);
-    window.location.reload(true);
     }
 
     return (

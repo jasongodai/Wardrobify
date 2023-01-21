@@ -1,6 +1,6 @@
 import React from 'react'
 
-function LocationsList({locations}) {
+function LocationsList({locations, getLocations}) {
     if (locations === undefined) {
         return null;
     }
@@ -10,8 +10,10 @@ function LocationsList({locations}) {
         const fetchConfig = {
             method: 'delete'
         }
-        await fetch(locationUrl, fetchConfig)
-        window.location.reload(true)
+        const locationResponse = await fetch(locationUrl, fetchConfig)
+        if (locationResponse.ok) {
+            getLocations()
+        }
     }
 
     return (

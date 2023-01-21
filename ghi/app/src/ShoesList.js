@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 // import React from 'react';
 // import "./index.css";
 
-function ShoesList({shoes}) {
+function ShoesList({shoes, getShoes}) {
     if (shoes === undefined) {
         return null;
       }
@@ -13,8 +13,10 @@ function ShoesList({shoes}) {
     const fetchConfig = {
       method: 'delete'
     }
-  await fetch(shoeUrl, fetchConfig);
-  window.location.reload(true);
+  const shoeResponse = await fetch(shoeUrl, fetchConfig);
+  if (shoeResponse.ok) {
+    getShoes()
+  }
 }
 
     return (

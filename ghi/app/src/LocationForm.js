@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-function LocationForm() {
+function LocationForm(getLocations) {
     const [closet_name, setClosetName] = useState('')
     const [section_number, setSectionNumber] = useState('')
     const [shelf_number, setShelfNumber] = useState('')
@@ -43,6 +43,7 @@ function LocationForm() {
             setClosetName('')
             setSectionNumber('')
             setShelfNumber('')
+            getLocations()
         }
     }
 
