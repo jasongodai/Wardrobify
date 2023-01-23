@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 
-function BinForm () {
+function BinForm ({getBins}) {
     const [closet_name, setClosetName] = useState('');
     const [bin_number, setBinNumber] = useState('');
     const [bin_size, setBinSize] = useState('');
@@ -46,6 +46,7 @@ function BinForm () {
             setClosetName('');
             setBinNumber('');
             setBinSize('');
+            getBins();
 
         }
 

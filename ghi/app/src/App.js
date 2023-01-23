@@ -88,8 +88,8 @@ function App() {
         <Routes>
           <Route index element={<MainPage />} />
           <Route path="shoes">
-            <Route path="" element={<ShoesList shoes={shoes} getShoes={getShoes}/>} />
-            <Route path="new" element={<ShoeForm />} />
+            <Route path="" element={<ShoesList shoes={shoes} getShoes={getShoes} />} />
+            <Route path="new" element={<ShoeForm getShoes={getShoes} />} />
           </Route>
           <Route path="hats">
             <Route path="" element={<HatsList hats={hats} getHats={getHats} />}/>
@@ -97,7 +97,7 @@ function App() {
           </Route>
           <Route path="bins">
             <Route path="" element={<BinsList bins={bins} getBins={getBins} />} />
-            <Route path="new" element={<BinForm />} />
+            <Route path="new" element={<BinForm getBins={getBins}/>} />
           </Route>
           <Route path="locations">
             <Route path="" element={<LocationsList locations={locations} getLocations={getLocations} />} />

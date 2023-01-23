@@ -2,7 +2,7 @@
 import React from 'react';
 import "./index.css";
 
-function BinsList({bins}) {
+function BinsList({bins, getBins}) {
     if (bins === undefined) {
         return null;
       }
@@ -12,9 +12,12 @@ function BinsList({bins}) {
       const fetchConfig = {
         method: 'delete'
       }
-    await fetch(binUrl, fetchConfig);
+    const binResponse = await fetch(binUrl, fetchConfig);
+    if (binResponse.ok) {
+      getBins()
+    // window.location.reload(true);
     }
-
+  }
     return (
         <table className="table table-striped">
         <thead>

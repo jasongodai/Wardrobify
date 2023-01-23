@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from 'react';
 
-function ShoeForm () {
+function ShoeForm ({getShoes}) {
     const [manufacturer, setManufacturer] = useState('');
     const [model_name, setModelName] = useState('');
     const [color, setColor] = useState('');
@@ -64,6 +64,7 @@ function ShoeForm () {
             setColor('');
             setPictureUrl('');
             setBin('');
+            getShoes();
 
         }
 
