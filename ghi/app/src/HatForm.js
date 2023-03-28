@@ -56,11 +56,11 @@ function HatForm(getHats) {
 
         const hatUrl = 'http://localhost:8090/api/locations/'
         const fetchConfig = {
-            method: "post",
-            body: JSON.stringify(data),
-            headers: {
-                'Content-Type': 'application/json',
-            }
+          method: "post",
+          body: JSON.stringify(data),
+          headers: {
+              'Content-Type': 'application/json',
+          }
         }
         const hatResponse = await fetch(hatUrl, fetchConfig)
         if (hatResponse.ok) {

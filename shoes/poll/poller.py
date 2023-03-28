@@ -18,7 +18,7 @@ def get_bins():
     response = requests.get(url)
     content = json.loads(response.content)
     for bin in content["bins"]:
-        print(bin)
+        # print("bin info!",bin)
         BinVO.objects.update_or_create(
             import_href=bin["href"],
             defaults={

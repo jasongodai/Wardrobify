@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-function LocationForm(getLocations) {
+function LocationForm({getLocations}) {
     const [closet_name, setClosetName] = useState('')
     const [section_number, setSectionNumber] = useState('')
     const [shelf_number, setShelfNumber] = useState('')
@@ -39,11 +39,11 @@ function LocationForm(getLocations) {
         const hatResponse = await fetch(hatUrl, fetchConfig)
         if (hatResponse.ok) {
             const newHat = await hatResponse.json()
-            console.log(newHat)
-            setClosetName('')
-            setSectionNumber('')
-            setShelfNumber('')
-            getLocations()
+            console.log(newHat);
+            setClosetName('');
+            setSectionNumber('');
+            setShelfNumber('');
+            getLocations();
         }
     }
 

@@ -28,6 +28,7 @@ function LocationsList({locations, getLocations}) {
             </thead>
             <tbody>
                 {locations.map(location => {
+                    console.log(location)
                     return (
                         <tr key={location.id}>
                             <td>{ location.closet_name }</td>

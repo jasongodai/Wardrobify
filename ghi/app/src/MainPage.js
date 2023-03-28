@@ -47,7 +47,7 @@ function MainPage() {
       </div>
       <br></br>
       <div></div>
-      <h3 className="display-5 fw-bold">Shoes</h3>
+      <h3 className="display-5 fw-bold" style={{fontSize: "40px"}}>Shoes</h3>
       <div className="row pb-5 mb-4">
         {shoes.map(shoe => {
           return (
@@ -67,7 +67,7 @@ function MainPage() {
           )
         })}
       </div>
-      <h3 className="display-5 fw-bold">Hats</h3>
+      <h3 className="display-5 fw-bold" style={{fontSize: "40px"}}>Hats</h3>
       <div className="row pb-5 mb-4">
         {hats.map(hat => {
           return (

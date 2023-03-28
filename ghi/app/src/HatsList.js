@@ -16,7 +16,7 @@ function HatsList({hats, getHats}) {
             getHats()
         }
     }
-
+    console.log("THIS THE HATS!", hats)
     return (
         <table className="table table-striped">
             <thead>
