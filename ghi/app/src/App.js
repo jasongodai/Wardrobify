@@ -77,7 +77,7 @@ function App() {
   console.log("These are the bins", bins)
   console.log("These are the locations", locations)
 
-  if (shoes === undefined && hats === undefined && bins === undefined) {
+  if (shoes === undefined && hats === undefined && bins === undefined && locations === undefined) {
     return null;
   }
 
@@ -93,7 +93,7 @@ function App() {
           </Route>
           <Route path="hats">
             <Route path="" element={<HatsList hats={hats} getHats={getHats} />}/>
-            <Route path="new" element={<HatForm />} getHats={getHats} />
+            <Route path="new" element={<HatForm getHats={getHats} />} />
           </Route>
           <Route path="bins">
             <Route path="" element={<BinsList bins={bins} getBins={getBins} />} />
@@ -101,7 +101,7 @@ function App() {
           </Route>
           <Route path="locations">
             <Route path="" element={<LocationsList locations={locations} getLocations={getLocations} />} />
-            <Route path="new" element={<LocationForm />} getLocations={getLocations} />
+            <Route path="new" element={<LocationForm getLocations={getLocations}/>} />
           </Route>
         </Routes>
       </div>

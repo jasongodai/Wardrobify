@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 
-function HatForm(getHats) {
+function HatForm({getHats}) {
     const [style_name, setStyleName] = useState('')
     const [color, setColor] = useState('')
     const [fabric, setFabric] = useState('')
@@ -66,12 +66,12 @@ function HatForm(getHats) {
         if (hatResponse.ok) {
             const newHat = await hatResponse.json()
             console.log(newHat)
-            setStyleName('')
-            setColor('')
-            setFabric('')
-            setPictureUrl('')
-            setLocation('')
-            getHats()
+            setStyleName('');
+            setColor('');
+            setFabric('');
+            setPictureUrl('');
+            setLocation('');
+            getHats();
         }
     }
 
